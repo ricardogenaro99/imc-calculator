@@ -8,8 +8,9 @@ const botonImc = document.getElementById("btn-calcular");
 const botonMenu = document.getElementById("btn-menu");
 const menu = document.getElementById("menu")
 const showResultados = document.getElementsByClassName("show-resultado-imc-container");
-
+const mensajeResultado = document.getElementById("resultado-description")
 let menuAbierto = false;
+let mensaje = "";
 
 //EVENLISTENER EN LOS BOTONES MENU Y CALCULAR IMC
 botonMenu.addEventListener('click', () => {
@@ -51,19 +52,50 @@ botonImc.addEventListener('click', (e) => {
                 <div class="show-resultado-imc-item-indicator"></div>
                 `;
                 showResultados[pos].classList.add('show-resultado-imc-item');
+
+                mensaje = `
+                    <div class="resultado-description-item">
+                        <p class="resultado-description-text ">Tu IMC personal</p>
+                        <p class="resultado-description-text">${imc}</p>
+                    </div>
+
+                    <div class="resultado-description-item">
+                        <p class="resultado-description-text ">Tu peso actual</p>
+                        <p class="resultado-description-text">${peso.value}</p>
+                    </div>
+
+                    <div class="resultado-description-item">
+                        <p class="resultado-description-text">Tu rando de peso ideal</p>
+                        <p class="resultado-description-text">50.8kg - 58.4kg</p>
+                    </div>
+
+                    <div class="resultado-description-item">Debe cuidarse de covid crack</div> 
+                `
+                asignarMensaje("success", "error", mensaje)
             } else {
-                alert("Verifique los datos ingresados");
+                mensaje = `<p class="resultado-description-text"> Verifique los datos ingresados</p>`
+                asignarMensaje("error", "success", mensaje)
             }
 
         } else {
-            alert("Verifique los datos ingresados");
+            mensaje = `<p class="resultado-description-text"> Verifique los datos ingresados</p>`
+            asignarMensaje("error", "success", mensaje)
         }
-    } else alert("Ingrese todos los datos solicitados");
+    } else {
+        mensaje = `<p class="resultado-description-text"> Ingrese los datos</p>`
+        asignarMensaje("error", "success", mensaje)
+    };
 
 });
 
 
 //APLICANDO LA FUNCION FLECHAS CUNADO EL USUARIO HACE CLICK EN EL OBJETO BOTON
+
+const asignarMensaje = (add, remove, mensaje) => {
+    mensajeResultado.innerHTML = mensaje;
+    mensajeResultado.classList.add(`resultado-description-${add}`)
+    mensajeResultado.classList.remove(`resultado-description-${remove}`)
+}
 
 const valido = () => {
     if (String(altura.value).trim().length == 0 || String(peso.value).trim().length == 0 || String(edad.value).trim().length == 0) {
