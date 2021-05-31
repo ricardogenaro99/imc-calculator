@@ -11,14 +11,25 @@ const showResultados = document.getElementsByClassName("show-resultado-imc-conta
 
 let menuAbierto = false;
 
-botonMenu.addEventListener('click', ()=>{
-    if(menuAbierto){
-        menu.classList.remove("menu-on")
-        menu.classList.add('menu-off')
+//EVENLISTENER EN LOS BOTONES MENU Y CALCULAR IMC
+botonMenu.addEventListener('click', () => {
+    if (menuAbierto) {
+        menu.classList.remove("nav-menu-container-on")
+        menu.classList.add('nav-menu-container-off')
+        setTimeout(() => {
+            botonMenu.classList.add("fa-bars")
+            botonMenu.classList.remove("fa-times")
+        }, 380);
         menuAbierto = false;
-    }else{
-        menu.classList.remove("menu-off")
-        menu.classList.add('menu-on')
+    } else {
+        menu.classList.remove("nav-menu-container-off")
+        menu.classList.add('nav-menu-container-on')
+
+
+        setTimeout(() => {
+            botonMenu.classList.remove("fa-bars")
+            botonMenu.classList.add("fa-times")
+        }, 380);
         menuAbierto = true;
     }
 });
@@ -29,8 +40,8 @@ botonImc.addEventListener('click', (e) => {
         imc = imc.toFixed(2);
         if (!isNaN(imc)) {
             let pos = posDiv(imc);
-            if (pos != -1) {       
-                for(div of showResultados) {
+            if (pos != -1) {
+                for (div of showResultados) {
                     div.innerHTML = "";
                     div.classList.remove('show-resultado-imc-item');
                 }
@@ -40,7 +51,7 @@ botonImc.addEventListener('click', (e) => {
                 <div class="show-resultado-imc-item-indicator"></div>
                 `;
                 showResultados[pos].classList.add('show-resultado-imc-item');
-            }else{
+            } else {
                 alert("Verifique los datos ingresados");
             }
 
