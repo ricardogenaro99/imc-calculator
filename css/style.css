@@ -1,5 +1,5 @@
 * {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -28,6 +28,10 @@ a {
     color: #000;
 }
 
+.page-off{
+    display: none;
+}
+
 /*------------------CABECERA Y MENU----------------------*/
 .header {
     border-bottom: 1px solid #ccc;
@@ -41,6 +45,7 @@ a {
     width: calc(100% - 120px);
     margin: auto;
     overflow: hidden;
+    height: 90px;
 }
 
 .nav-flex-item {
@@ -59,6 +64,8 @@ a {
 
 .title-web {
     font-size: 38px;
+    font-weight:900;
+    font-style: italic;
 }
 
 .btn-menu {
@@ -156,15 +163,18 @@ a {
 /*------------------MAIN----------------------*/
 .info-title-web {
     text-align: center;
+    padding: 0 50px;
 }
 
 .title {
-    font-size: 30px;
+    font-size: 42px;
+    font-weight: 700;
 }
 
 .subtitle {
-    margin: 11px 0 11px 0;
-    font-size: 18px;
+    margin: 11px 0 15px 0;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 /*-----------------FORMULARIO GRID----------------------*/
@@ -173,18 +183,19 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
-    margin-bottom: 41px;
+
+    margin: 35px 12px 41px 12px;
 }
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(min-content, 430px));
-    grid-template-rows: repeat(2, 266px);
+    /*grid-template-columns: repeat(2, minmax(min-content, 400px));*/
+    grid-template-columns: repeat(2, minmax(max-content, 400px));
+    grid-template-rows: repeat(2, 260px);
     justify-content: center;
     align-content: center;
     gap: 40px 34px;
 }
-/*MIN WIDTH DE LA PANTALLA PARA 2 COLUMNAS ES 950PX*/
+
 .grid-item {
     justify-self: center;
     text-align: center;
@@ -203,13 +214,14 @@ a {
     text-align: center;
     color: #fff;
     transform: translateY(-18px);
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .title-grid-item {
-    font-size: 22px;
+    font-size: 23px;
     margin-bottom: 15px;
-    color: #555;
+    color: #333;
+    font-weight: 500;
 }
 
 .item1 {
@@ -228,12 +240,15 @@ a {
     background: rgba(255, 166, 0, 0.349);
     border-radius: 24px;
     width: 135px;
-    height: 50px;
-    line-height: 50px;
+    height: 48px;
+    line-height: 48px;
     margin-top: 8px;
     transition-property: background;
     transition-duration: 0.24s;
     transition-timing-function: linear;
+    font-size: 19px;
+    font-weight: 400;
+    user-select: none;
 }
 
 /*------------------FORMULARIO ITEM1 GENERO----------------------*/
@@ -262,10 +277,10 @@ a {
 /*------------------INPUT DEL FORMULARIO----------------------*/
 .input-numeric {
     margin-top: 15px;
-    font-weight: bold;
+    font-weight: 900;
     border: none;
     border-bottom: 2px solid #222;
-    width: 57px;
+    width: 69px;
     height: 34px;
     text-align: center;
     line-height: 41px;
@@ -332,7 +347,7 @@ a {
     background: -moz-linear-gradient(right, #ff9901, #ff4040);
     background: linear-gradient(to left, #ff9901, #ff4040);
     color: #fff;
-    font-weight: bold;
+    font-weight: 500;
     line-height: 45px;
     font-size: 18px;
     text-align: center;
@@ -467,12 +482,41 @@ a {
     margin: 7px 0;
 }
 .resultado-description-text:nth-child(1){
-    font-weight: bold;
+    font-weight: 700;
 }
 
+/*-------------SOBRE EL IMC----------*/
 
+.web-imc-item{
+    padding: 10px 60px;
+    margin: 15px 0;
+}
 
+.web-imc-text{
+    line-height: 24px;
+}
+.title-imc{
+    font-size: 22px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 20px;
+}
 
+.subtitle-imc{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #777;
+}
+
+.parrafo-imc{
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/*MIN WIDTH DE LA PANTALLA PARA 2 COLUMNAS ES 858PX*/
+/*----------------RESPONSIVE DESIGN----------------*/
 
 
 

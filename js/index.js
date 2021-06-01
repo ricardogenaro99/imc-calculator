@@ -2,6 +2,10 @@
 const altura = document.getElementById("altura");
 const peso = document.getElementById("peso");
 const edad = document.getElementById("edad");
+const botonWebCalculator = document.getElementById("btn-web-calculator");
+const botonWebImc = document.getElementById("btn-web-imc");
+const webCalculator = document.getElementById("web-calculator");
+const webImc = document.getElementById("web-imc");
 const botonImc = document.getElementById("btn-calcular");
 const botonMenu = document.getElementById("btn-menu");
 const botonHombre = document.getElementById("button-man");
@@ -12,7 +16,7 @@ const mensajeResultado = document.getElementById("resultado-description")
 let generoSeleccionado;
 let menuAbierto = false;
 let mensaje = "";
-let db = []
+let db = [];
 
 //USO DE OBJETOS PARA EL INTERVALO DE IMC HOMBRE Y MUJER
 
@@ -25,6 +29,17 @@ const llenarDb = (genero,edad,altura,peso) =>{
 
 
 //EVENLISTENER EN LOS BOTONES MENU Y CALCULAR IMC
+
+botonWebCalculator.addEventListener('click', ()=> {
+    webCalculator.classList.remove('page-off');
+    webImc.classList.add('page-off');
+})
+
+botonWebImc.addEventListener('click', ()=> {
+    webImc.classList.remove('page-off');
+    webCalculator.classList.add('page-off');
+})
+
 botonHombre.addEventListener('click', ()=> {
     botonHombre.classList.add('button-genero-active');
     botonMujer.classList.remove('button-genero-active');

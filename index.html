@@ -1,215 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/normalize.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,900;1,500;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <title>IMCalc</title>
+        <script
+            src="https://kit.fontawesome.com/67a5269e2a.js"
+            crossorigin="anonymous"
+        ></script>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <title>IMCalc</title>
-    <script src="https://kit.fontawesome.com/67a5269e2a.js" crossorigin="anonymous"></script>
+        <script>
+            function solonumeros(e) {
+                key = e.keyCode || e.which;
+                teclado = String.fromCharCode(key);
+                numeros = "0123456789.";
+                especiales = "8-37-38-46"; //array
+                teclado_especial = false;
 
-    <script>
-        function solonumeros(e) {
-            key = e.keyCode || e.which;
-            teclado = String.fromCharCode(key);
-            numeros = "0123456789.";
-            especiales = "8-37-38-46"; //array
-            teclado_especial = false;
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        teclado_especial = true;
+                    }
+                }
 
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_especial = true;
+                if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
+                    return false;
                 }
             }
+        </script>
+    </head>
 
-            if (numeros.indexOf(teclado) == -1 && !teclado_especial) {
-                return false;
-            }
-        }
-    </script>
-</head>
-
-<body>
-    <div class="web-container">
-        <header class="header">
-            <nav class="nav-flex">
-                <h1 class="title-web nav-flex-item"><a href="index.html">IMCalc</a> </h1>
-                <div class="nav-flex-item nav-menu-container" id="menu">
-                    <i class="fas fa-bars btn-menu button" id="btn-menu"></i>
-                    <ul class="menu">
-                        <li class="item-menu button item-menu-border">
-                            <a href="./index.html">Calculadora</a>
-                        </li>
-                        <li class="item-menu button item-menu-border">
-                            <a href="./imc.html">¿Qué es el IMC?</a>
-
-                        </li>
-                        <li class="
-                                item-menu
-                                button
-                                item-menu-social-container
-                            " id="item-menu-fb">
-                            <a class="item-menu-social facebook-logo" href="https://www.facebook.com/ricardogenaro1999/"
-                                target="_blank">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li class="
-                                item-menu
-                                button
-                                item-menu-social-container
-                            " id="item-menu-ig">
-                            <a class="item-menu-social instagram-logo" href="https://www.instagram.com/ricardogenaro99/"
-                                target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <h3 class="title info-title-web">Calcular IMC</h3>
-            <p class="subtitle info-title-web">
-                Para un cálculo correcto necesitamos algo de información
-                básica sobre ti
-            </p>
-            <form action="" class="form">
-                <div class="grid-container">
-                    <div class="grid-item item1">
-                        <div class="num-grid-item">1</div>
-                        <h5 class="title-grid-item">¿Cuál es tu género?</h5>
-                        <div class="item-select-genero">
-                            <div class="item-genero">
-                                <img src="https://assets.yazio.com/frontend/images/icons.svg#icon-male" alt=""
-                                    class="img-genero" />
-                                <div class="button-genero button-man button" id="button-man">
-                                    Hombre
+    <body>
+        <div class="web-container">
+            <header class="header">
+                <nav class="nav-flex">
+                    <h1 class="title-web nav-flex-item">
+                        <a href="index.html">IMCalc</a>
+                    </h1>
+                    <div class="nav-flex-item nav-menu-container" id="menu">
+                        <i
+                            class="fas fa-bars btn-menu button"
+                            id="btn-menu"
+                        ></i>
+                        <ul class="menu">
+                            <li class="item-menu button item-menu-border" id="btn-web-calculator">
+                                Calculadora
+                            </li>
+                            <li class="item-menu button item-menu-border" id="btn-web-imc">
+                                ¿Qué es el IMC?
+                            </li>
+                            <li
+                                class="
+                                    item-menu
+                                    button
+                                    item-menu-social-container
+                                "
+                                id="item-menu-fb"
+                            >
+                                <a
+                                    class="item-menu-social facebook-logo"
+                                    href="https://www.facebook.com/ricardogenaro1999/"
+                                    target="_blank"
+                                >
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li
+                                class="
+                                    item-menu
+                                    button
+                                    item-menu-social-container
+                                "
+                                id="item-menu-ig"
+                            >
+                                <a
+                                    class="item-menu-social instagram-logo"
+                                    href="https://www.instagram.com/ricardogenaro99/"
+                                    target="_blank"
+                                >
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <main>
+                <div id="web-calculator">
+                    <h3 class="title info-title-web">Calcular IMC</h3>
+                    <p class="subtitle info-title-web">
+                        Para un cálculo correcto necesitamos algo de información
+                        básica sobre ti
+                    </p>
+                    <form action="" class="form">
+                        <div class="grid-container">
+                            <div class="grid-item item1">
+                                <div class="num-grid-item">1</div>
+                                <h5 class="title-grid-item">
+                                    ¿Cuál es tu género?
+                                </h5>
+                                <div class="item-select-genero">
+                                    <div class="item-genero">
+                                        <img
+                                            src="https://assets.yazio.com/frontend/images/icons.svg#icon-male"
+                                            alt=""
+                                            class="img-genero"
+                                        />
+                                        <div
+                                            class="
+                                                button-genero button-man button
+                                            "
+                                            id="button-man"
+                                        >
+                                            Hombre
+                                        </div>
+                                    </div>
+                                    <div class="item-genero">
+                                        <img
+                                            src="https://assets.yazio.com/frontend/images/icons.svg#icon-female"
+                                            alt=""
+                                            class="img-genero"
+                                        />
+                                        <div
+                                            class="
+                                                button-genero
+                                                button-woman
+                                                button
+                                            "
+                                            id="button-woman"
+                                        >
+                                            Mujer
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="item-genero">
-                                <img src="https://assets.yazio.com/frontend/images/icons.svg#icon-female" alt=""
-                                    class="img-genero" />
-                                <div class="
-                                        button-genero button-woman button
-                                    " id="button-woman">
-                                    Mujer
+                            <div class="grid-item item2">
+                                <div class="num-grid-item">2</div>
+                                <h5 class="title-grid-item">
+                                    ¿Cuántos años tienes?
+                                </h5>
+                                <input
+                                    type="text"
+                                    id="edad"
+                                    class="input-numeric"
+                                    onkeypress="return solonumeros(event)"
+                                    autocomplete="off"
+                                    onpaste="return false"
+                                    placeholder="22"
+                                />
+                                <span class="unidad-medida">años</span>
+                                <div class="icon-container">
+                                    <i
+                                        class="fas fa-birthday-cake icon icake"
+                                    ></i>
+                                </div>
+                            </div>
+                            <div class="grid-item item3">
+                                <div class="num-grid-item">3</div>
+                                <h5 class="title-grid-item">¿Cuánto mides?</h5>
+                                <input
+                                    type="text"
+                                    id="altura"
+                                    class="input-numeric"
+                                    onkeypress="return solonumeros(event)"
+                                    autocomplete="off"
+                                    onpaste="return false"
+                                    placeholder="170"
+                                />
+                                <span class="unidad-medida">cm</span>
+                                <div class="icon-container">
+                                    <i
+                                        class="
+                                            fas
+                                            fa-ruler-vertical
+                                            icon
+                                            iruler
+                                        "
+                                    ></i>
+                                </div>
+                            </div>
+                            <div class="grid-item item4">
+                                <div class="num-grid-item">4</div>
+                                <h5 class="title-grid-item">¿Cuánto pesas?</h5>
+
+                                <input
+                                    type="text"
+                                    id="peso"
+                                    class="input-numeric"
+                                    onkeypress="return solonumeros(event)"
+                                    autocomplete="off"
+                                    onpaste="return false"
+                                    placeholder="70"
+                                />
+                                <span class="unidad-medida">kg</span>
+                                <div class="icon-container">
+                                    <i class="fas fa-weight icon iweight"></i>
                                 </div>
                             </div>
                         </div>
+                        <a
+                            href="#resultado-container"
+                            class="btn-calcular button"
+                            id="btn-calcular"
+                            >Calcular tu IMC</a
+                        >
+                    </form>
+
+                    <div
+                        class="resultado-color-container"
+                        id="resultado-container"
+                    >
+                        <div class="resultado-item div-resultado-celeste">
+                            <h6 class="resultado-imc-name resultado-line-text">
+                                Bajo peso
+                            </h6>
+                            <p
+                                class="
+                                    resultado-imc-interval resultado-line-text
+                                "
+                            >
+                                0.0 - 18.4
+                            </p>
+                            <div class="line-color-item line-celeste"></div>
+                        </div>
+                        <div class="resultado-item div-item-verde">
+                            <h6 class="resultado-imc-name resultado-line-text">
+                                Saludable
+                            </h6>
+                            <p
+                                class="
+                                    resultado-imc-interval resultado-line-text
+                                "
+                            >
+                                18.5 - 24,9
+                            </p>
+                            <div class="line-color-item line-verde"></div>
+                        </div>
+                        <div class="resultado-item div-item-naranja">
+                            <h6 class="resultado-imc-name resultado-line-text">
+                                Sobrepeso
+                            </h6>
+                            <p
+                                class="
+                                    resultado-imc-interval resultado-line-text
+                                "
+                            >
+                                25 - 29,9
+                            </p>
+                            <div class="line-color-item line-naranja"></div>
+                        </div>
+                        <div class="resultado-item div-item-rojo">
+                            <h6 class="resultado-imc-name resultado-line-text">
+                                Obesidad I
+                            </h6>
+                            <p
+                                class="
+                                    resultado-imc-interval resultado-line-text
+                                "
+                            >
+                                30 - 34,9
+                            </p>
+                            <div class="line-color-item line-rojo"></div>
+                        </div>
+                        <div class="resultado-item div-item-morado1">
+                            <h6 class="resultado-imc-name resultado-line-text">
+                                Obesidad II
+                            </h6>
+                            <p
+                                class="
+                                    resultado-imc-interval resultado-line-text
+                                "
+                            >
+                                35 - 39.9
+                            </p>
+                            <div class="line-color-item line-morado1"></div>
+                        </div>
+                        <div class="resultado-item div-item-morado2">
+                            <h6 class="resultado-imc-name resultado-line-text">
+                                Obesidad III
+                            </h6>
+                            <p
+                                class="
+                                    resultado-imc-interval resultado-line-text
+                                "
+                            >
+                                40+
+                            </p>
+                            <div class="line-color-item line-morado2"></div>
+                        </div>
+
+                        <div class="show-resultado-imc-container"></div>
+                        <div class="show-resultado-imc-container"></div>
+                        <div class="show-resultado-imc-container"></div>
+                        <div class="show-resultado-imc-container"></div>
+                        <div class="show-resultado-imc-container"></div>
+                        <div class="show-resultado-imc-container"></div>
                     </div>
-                    <div class="grid-item item2">
-                        <div class="num-grid-item">2</div>
-                        <h5 class="title-grid-item">
-                            ¿Cuántos años tienes?
+
+                    <div
+                        class="resultado-description-container"
+                        id="resultado-description-container"
+                    >
+                        <div
+                            class="resultado-description"
+                            id="resultado-description"
+                        ></div>
+                    </div>
+                </div>
+
+
+                <div id="web-imc" class="page-off">
+                    <div class="web-imc-item">
+                        <h4 class="title-imc web-imc-text">Sobre el IMC</h4>
+                        <h5 class="subtitle-imc web-imc-text">¿Qué es el IMC?</h5>
+                        <p class="parrafo-imc web-imc-text">
+                            El IMC o Índice de Masa Corporal es la medición que
+                            valora tu peso en relación con tu altura. Puede usarse a
+                            cualquier edad y se puede calcular el IMC de mujeres,
+                            hombres y niños. El cálculo del IMC clasifica a los
+                            individuos en bajo peso, peso normal o sobrepeso, por lo
+                            que gracias a él se puede determinar si una persona
+                            tiene un peso inapropiado o poco sano para su altura. La
+                            calculadora del índice de masa corporal es una
+                            herramienta muy útil en el caso de personas se fijen un
+                            objetivo de cambio de peso, ya que ayuda a identificar
+                            cambios de peso. Es más, hoy en día se considera el
+                            cálculo del IMC un método más exacto que otros
+                            indicadores de salud, como pueden ser la talla o el
+                            peso.
+                        </p>
+    
+                        <h5 class="subtitle-imc web-imc-text">Cómo calcular el IMC</h5>
+                        <p class="parrafo-imc web-imc-text">
+                            Para calcular el índice de masa corporal hay que
+                            utilizar una calculadora de IMC. Nuestra calculadora de
+                            IMC online utiliza una fórmula científicamente
+                            reconocida para ofrecerte unos resultados sencillos de
+                            entender. ¡Y además es gratis! La fórmula que usamos
+                            para calcular el IMC es: m/l². Se toma el peso actual
+                            medido en kilogramos y se divide por la raíz cuadrada de
+                            nuestra altura en metros. Además, nuestra calculadora de
+                            índice de masa corporal incorpora los factores de sexo y
+                            edad. Gracias a esto ya tienes cómo calcular el IMC de
+                            mujeres, hombres y niños sin restricciones. Teniendo en
+                            cuenta estas variables se procede al cálculo del índice
+                            de masa corporal y se muestran los resultados en forma
+                            de análisis gráfico.
+                        </p>
+                    </div>
+                    
+                    <div class="web-imc-item">
+                        <h4 class="title-imc web-imc-text">Cómo interpretar el IMC</h4>
+                        <h5 class="subtitle-imc web-imc-text">Cómo se clasifica el IMC</h5>
+                        <p class="parrafo-imc web-imc-text">
+                            Entonces, ¿cómo hay que clasificar e interpretar los
+                            valores calculados por la calculadora online?
+                            Dependiendo de tu sexo, edad y otros diversos factores,
+                            tu IMC se puede clasificar como bajo peso, peso normal,
+                            sobrepeso u obesidad (exceso de peso). Además de eso,
+                            nuestra calculadora de IMC también te indica tu peso
+                            ideal y el rango de IMC en el que te encuentras. El
+                            rango de IMC sano para hombres se encuentra entre 18 y
+                            23 kg/m². Números por debajo de esos valores indicarían
+                            un caso de bajo peso. Esto puede significar que existe
+                            un desorden alimenticio. Por otra parte, un IMC de 23-24
+                            kg/m² indica un ligero sobrepeso. Esto puede ser
+                            peligroso cuando los valores alcanzan los 28-29 kg/m².
+                            En ese caso el individuo se situaría en la categoría de
+                            obesidad de clase 1. Un IMC a partir de 39-40 kg/m²
+                            indica un caso de obesidad de clase 2, más conocida como
+                            obesidad mórbida. De acuerdo con las estadísticas de
+                            2014 de la Organización Mundial de la Salud, más de un
+                            39% de los adultos tienen un índice de masa corporal por
+                            encima de los 25 puntos y fueron clasificados como
+                            personas con sobrepeso. La obesidad en niños es otro
+                            problema creciente, con 42 millones de niños por debajo
+                            de los 5 años clasificados con sobrepeso en 2013. Al
+                            calcular el IMC, los padres podrán ser conscientes de la
+                            salud de sus hijos y observar con atención cómo se
+                            desarrolla su peso.
+                        </p>
+    
+                        <h5 class="subtitle-imc web-imc-text">
+                            Consecuencias de un IMC muy alto o muy bajo
                         </h5>
-                        <input type="text" id="edad" class="input-numeric" onkeypress="return solonumeros(event)"
-                            autocomplete="off" onpaste="return false" placeholder="22" />
-                        <span class="unidad-medida">años</span>
-                        <div class="icon-container">
-                            <i class="fas fa-birthday-cake icon icake"></i>
-                        </div>
+                        <p class="parrafo-imc web-imc-text">
+                            En el caso de un índice de masa corporal alto existen
+                            muchas condiciones que todos conocemos. La obesidad no
+                            solo supone una restricción para la movilidad física de
+                            una persona, sino que también aumenta su probabilidad de
+                            sufrir otras enfermedades. La obesidad aumenta el riesgo
+                            de diabetes y puede llevar a un aumento de la presión
+                            corporal y signos de hipertensión. También puede
+                            resultar en dislipidemia y niveles altos de lípidos en
+                            sangre. Con un IMC por encima de 30 o incluso de 40, el
+                            riesgo de sufrir un infarto o ataque cardíaco aumenta
+                            considerablemente. Los pacientes con obesidad tienen que
+                            lidiar a menudo con artritis, enfermedades de la
+                            vesícula biliar y desajustes hormonales. También se
+                            incrementa el riesgo de sufrir varios tipos de cáncer,
+                            como el de riñón o el de colon. No obstante, un IMC que
+                            indique un peso muy bajo también es peligroso. El mayor
+                            problema en este caso es normalmente una enorme falta de
+                            nutrientes que deriva en deficiencias. La deficiencia de
+                            nutrientes puede contribuir al desarrollo de
+                            osteoporosis y puede afectar a la función muscular. Las
+                            personas con bajo peso tienen a menudo un sistema
+                            inmunitario más débil, lo que hace que sean más
+                            propicios a contraer enfermedades infecciosas y a su vez
+                            impedir que las heridas sanen correctamente. Estas
+                            serias deficiencias pueden ser causa de desórdenes
+                            alimenticios como la anorexia. Este tipo de desórdenes
+                            tiene efectos devastadores en los huesos, en los dientes
+                            y en el sistema inmunológico en general. En el peor de
+                            los casos es incluso posible una arritmia cardíaca
+                            provocada por la falta de potasio.
+                        </p>
                     </div>
-                    <div class="grid-item item3">
-                        <div class="num-grid-item">3</div>
-                        <h5 class="title-grid-item">¿Cuánto mides?</h5>
-                        <input type="text" id="altura" class="input-numeric" onkeypress="return solonumeros(event)"
-                            autocomplete="off" onpaste="return false" placeholder="170" />
-                        <span class="unidad-medida">cm</span>
-                        <div class="icon-container">
-                            <i class="fas fa-ruler-vertical icon iruler"></i>
-                        </div>
-                    </div>
-                    <div class="grid-item item4">
-                        <div class="num-grid-item">4</div>
-                        <h5 class="title-grid-item">¿Cuánto pesas?</h5>
+                    
+                </div>
+            </main>
+        </div>
 
-                        <input type="text" id="peso" class="input-numeric" onkeypress="return solonumeros(event)"
-                            autocomplete="off" onpaste="return false" placeholder="70" />
-                        <span class="unidad-medida">kg</span>
-                        <div class="icon-container">
-                            <i class="fas fa-weight icon iweight"></i>
-                        </div>
-                    </div>
-                </div>
-                <a href="#resultado-container" class="btn-calcular button" id="btn-calcular">Calcular tu IMC</a>
-            </form>
-
-            <div class="resultado-color-container" id="resultado-container">
-                <div class="resultado-item div-resultado-celeste">
-                    <h6 class="resultado-imc-name resultado-line-text">
-                        Bajo peso
-                    </h6>
-                    <p class="resultado-imc-interval resultado-line-text">
-                        0.0 - 18.4
-                    </p>
-                    <div class="line-color-item line-celeste"></div>
-                </div>
-                <div class="resultado-item div-item-verde">
-                    <h6 class="resultado-imc-name resultado-line-text">
-                        Saludable
-                    </h6>
-                    <p class="resultado-imc-interval resultado-line-text">
-                        18.5 - 24,9
-                    </p>
-                    <div class="line-color-item line-verde"></div>
-                </div>
-                <div class="resultado-item div-item-naranja">
-                    <h6 class="resultado-imc-name resultado-line-text">
-                        Sobrepeso
-                    </h6>
-                    <p class="resultado-imc-interval resultado-line-text">
-                        25 - 29,9
-                    </p>
-                    <div class="line-color-item line-naranja"></div>
-                </div>
-                <div class="resultado-item div-item-rojo">
-                    <h6 class="resultado-imc-name resultado-line-text">
-                        Obesidad I
-                    </h6>
-                    <p class="resultado-imc-interval resultado-line-text">
-                        30 - 34,9
-                    </p>
-                    <div class="line-color-item line-rojo"></div>
-                </div>
-                <div class="resultado-item div-item-morado1">
-                    <h6 class="resultado-imc-name resultado-line-text">
-                        Obesidad II
-                    </h6>
-                    <p class="resultado-imc-interval resultado-line-text">
-                        35 - 39.9
-                    </p>
-                    <div class="line-color-item line-morado1"></div>
-                </div>
-                <div class="resultado-item div-item-morado2">
-                    <h6 class="resultado-imc-name resultado-line-text">
-                        Obesidad III
-                    </h6>
-                    <p class="resultado-imc-interval resultado-line-text">
-                        40+
-                    </p>
-                    <div class="line-color-item line-morado2"></div>
-                </div>
-
-                <div class="show-resultado-imc-container"></div>
-                <div class="show-resultado-imc-container"></div>
-                <div class="show-resultado-imc-container"></div>
-                <div class="show-resultado-imc-container"></div>
-                <div class="show-resultado-imc-container"></div>
-                <div class="show-resultado-imc-container"></div>
-            </div>
-
-            <div class="resultado-description-container" id="resultado-description-container">
-                <div class="resultado-description" id="resultado-description">
-                </div>
-
-            </div>
-        </main>
-    </div>
-
-    <script src="./js/index.js"></script>
-</body>
-
+        <script src="./js/index.js"></script>
+    </body>
 </html>
