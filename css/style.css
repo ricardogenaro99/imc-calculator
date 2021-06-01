@@ -67,7 +67,6 @@ a {
     font-size: 31px;
 }
 
-
 .nav-menu-container {
     transform: translateX(390px);
 }
@@ -76,6 +75,7 @@ a {
     transform: translateX(390px);
     transition: all 0.4s ease;
 }
+
 
 .nav-menu-container-on {
     transform: translateX(0);
@@ -238,11 +238,11 @@ a {
 
 /*------------------FORMULARIO ITEM1 GENERO----------------------*/
 .button-genero:hover {
-    background: rgba(255, 166, 0, 0.7);
+    background: rgba(255, 166, 0, .7);
 }
 
-.button-genero-selected {
-    background: rgba(255, 166, 0, 0.7);
+.button-genero-active {
+    background: rgba(255, 166, 0, .7);
 }
 
 .button-man {
@@ -257,6 +257,7 @@ a {
     width: 86px;
     height: 86px;
 }
+
 
 /*------------------INPUT DEL FORMULARIO----------------------*/
 .input-numeric {
@@ -430,27 +431,27 @@ a {
     align-items: center;
 }
 
-.resultado-description {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(max-content,1fr));
-    grid-template-rows: 65px 40px;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
+.resultado-description {  
     margin-bottom: 20px;
     border-radius: 7px;
     width: 81%;
     text-align: center;
 }
 
-
 .resultado-description-item:nth-child(4){
     grid-column: 1/4;
+    font-size: 17px;
+    justify-self: center;
+    align-self: flex-end;
 }
 
 .resultado-description-success {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(max-content,1fr));
+    grid-template-rows: 65px 40px;
     background: #8de4ff54;
     border: 1.8px solid #52d7ff2a;
+    padding: 15px 0;
 }
 
 .resultado-description-error {

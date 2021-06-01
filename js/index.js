@@ -1,18 +1,42 @@
-
-
 //ASIGNAT A VARIABLES CONSTANTES LOS OBJETOS HTML CON EL ID
 const altura = document.getElementById("altura");
 const peso = document.getElementById("peso");
 const edad = document.getElementById("edad");
 const botonImc = document.getElementById("btn-calcular");
 const botonMenu = document.getElementById("btn-menu");
+const botonHombre = document.getElementById("button-man");
+const botonMujer = document.getElementById("button-woman");
 const menu = document.getElementById("menu")
 const showResultados = document.getElementsByClassName("show-resultado-imc-container");
 const mensajeResultado = document.getElementById("resultado-description")
+let generoSeleccionado;
 let menuAbierto = false;
 let mensaje = "";
+let db = []
+
+//USO DE OBJETOS PARA EL INTERVALO DE IMC HOMBRE Y MUJER
+
+let intervalImc = [[0.0,18.4,"con bajo peso"],[18.5,24.9,"saludable"],[25,29.9,"con sobrepeso"],[30,34.9,"con obesidad I"], [35,39.9,"con obesidad II"], [40,Infinity,"con obesidad III"]]
+
+const llenarDb = (genero,edad,altura,peso) =>{
+    db.push([genero,edad,altura,peso]);
+    console.log(db);
+}
+
 
 //EVENLISTENER EN LOS BOTONES MENU Y CALCULAR IMC
+botonHombre.addEventListener('click', ()=> {
+    botonHombre.classList.add('button-genero-active');
+    botonMujer.classList.remove('button-genero-active');
+    generoSeleccionado = "Hombre";
+})
+
+botonMujer.addEventListener('click', ()=> {
+    botonMujer.classList.add('button-genero-active');
+    botonHombre.classList.remove('button-genero-active');
+    generoSeleccionado = "Mujer";
+})
+
 botonMenu.addEventListener('click', () => {
     if (menuAbierto) {
         menu.classList.remove("nav-menu-container-on")
@@ -38,14 +62,12 @@ botonMenu.addEventListener('click', () => {
 botonImc.addEventListener('click', (e) => {
     if (valido()) {
         let imc = peso.value / Math.pow(altura.value / 100, 2);
-        imc = imc.toFixed(2);
+        imc = imc.toFixed(1);
         if (!isNaN(imc)) {
             let pos = posDiv(imc);
             if (pos != -1) {
-                for (div of showResultados) {
-                    div.innerHTML = "";
-                    div.classList.remove('show-resultado-imc-item');
-                }
+                limpiarDivs();
+                llenarDb(generoSeleccionado,edad.value,altura.value,peso.value)
                 showResultados[pos].innerHTML = `
                 <p class="show-resultado-imc-item-text">Tu IMC</p>
                 <p class="show-resultado-imc-item-text"><b>${imc}</b></p>
@@ -66,10 +88,10 @@ botonImc.addEventListener('click', (e) => {
 
                     <div class="resultado-description-item">
                         <p class="resultado-description-text">Tu rando de peso ideal</p>
-                        <p class="resultado-description-text">50.8kg - 58.4kg</p>
+                        <p class="resultado-description-text">${minmaxPeso(altura.value)[0]}kg - ${minmaxPeso(altura.value)[1]}kg</p>
                     </div>
 
-                    <div class="resultado-description-item">Debe cuidarse de covid crack</div> 
+                    <div class="resultado-description-item">${mensajeCovid(pos)}</div> 
                 `
                 asignarMensaje("success", "error", mensaje)
             } else {
@@ -78,11 +100,13 @@ botonImc.addEventListener('click', (e) => {
             }
 
         } else {
-            mensaje = `<p class="resultado-description-text"> Verifique los datos ingresados</p>`
+            limpiarDivs();
+            mensaje = `<p class="resultado-description-text">Verifique los datos ingresados</p>`
             asignarMensaje("error", "success", mensaje)
         }
     } else {
-        mensaje = `<p class="resultado-description-text"> Ingrese los datos</p>`
+        limpiarDivs();
+        mensaje = `<p class="resultado-description-text"> Ingrese todos la informacion requerida</p>`
         asignarMensaje("error", "success", mensaje)
     };
 
@@ -91,6 +115,13 @@ botonImc.addEventListener('click', (e) => {
 
 //APLICANDO LA FUNCION FLECHAS CUNADO EL USUARIO HACE CLICK EN EL OBJETO BOTON
 
+const limpiarDivs = () => {
+    for (div of showResultados) {
+        div.innerHTML = "";
+        div.classList.remove('show-resultado-imc-item');
+    }
+}
+
 const asignarMensaje = (add, remove, mensaje) => {
     mensajeResultado.innerHTML = mensaje;
     mensajeResultado.classList.add(`resultado-description-${add}`)
@@ -98,10 +129,10 @@ const asignarMensaje = (add, remove, mensaje) => {
 }
 
 const valido = () => {
-    if (String(altura.value).trim().length == 0 || String(peso.value).trim().length == 0 || String(edad.value).trim().length == 0) {
-        return false;
-    } else {
+    if (String(altura.value).trim().length != 0 && String(peso.value).trim().length != 0 && String(edad.value).trim().length != 0 && (botonHombre.matches('.button-genero-active') || botonMujer.matches('.button-genero-active'))) {
         return true;
+    } else {
+        return false;
     }
 };
 
@@ -114,3 +145,24 @@ const posDiv = (n) => {
     else if (n >= 40) return 5;
     else return -1;
 };
+
+const minmaxPeso = (altura) => {
+    let minPeso = intervalImc[1][0] * Math.pow(altura / 100, 2);
+    let maxPeso = intervalImc[1][1] * Math.pow(altura / 100, 2);
+    return [minPeso.toFixed(1),maxPeso.toFixed(1)]
+}
+
+let prefijosCovid = {
+    0: "muy",
+    1: "muy poco",
+    2: "algo",
+    3: "muy",
+    4: "demasiado",
+    5: "potencialemnte"
+}
+
+const mensajeCovid = (n) => {
+    let mensaje = `Debido a que te encuentras ${intervalImc[n][2]} estas ${prefijosCovid[n]} propenso a tener COIVD segun tu IMC.`;
+
+    return mensaje
+}
