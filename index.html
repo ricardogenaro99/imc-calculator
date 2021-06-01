@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/normalize.css" />
-    <title>Document</title>
-    <script
-        src="https://kit.fontawesome.com/67a5269e2a.js"
-        crossorigin="anonymous"
-    ></script>
+    <title>IMCalc</title>
+    <script src="https://kit.fontawesome.com/67a5269e2a.js" crossorigin="anonymous"></script>
 
     <script>
         function solonumeros(e) {
@@ -37,46 +35,34 @@
     <div class="web-container">
         <header class="header">
             <nav class="nav-flex">
-                <h1 class="title-web nav-flex-item"><a href="index.html">TITULO</a> </h1>
-                <div class="nav-flex-item nav-menu-container"  id="menu">
+                <h1 class="title-web nav-flex-item"><a href="index.html">IMCalc</a> </h1>
+                <div class="nav-flex-item nav-menu-container" id="menu">
                     <i class="fas fa-bars btn-menu button" id="btn-menu"></i>
                     <ul class="menu">
                         <li class="item-menu button item-menu-border">
-                            <a href="./index.html">Calculadora</a> 
+                            <a href="./index.html">Calculadora</a>
                         </li>
                         <li class="item-menu button item-menu-border">
-                            <a href="./imc.html">¿Qué es el IMC?</a> 
-                            
+                            <a href="./imc.html">¿Qué es el IMC?</a>
+
                         </li>
-                        <li
-                            class="
+                        <li class="
                                 item-menu
                                 button
                                 item-menu-social-container
-                            "
-                            id="item-menu-fb"
-                        >
-                            <a
-                                class="item-menu-social facebook-logo"
-                                href="https://www.facebook.com/ricardogenaro1999/"
-                                target="_blank"
-                            >
+                            " id="item-menu-fb">
+                            <a class="item-menu-social facebook-logo" href="https://www.facebook.com/ricardogenaro1999/"
+                                target="_blank">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                         </li>
-                        <li
-                            class="
+                        <li class="
                                 item-menu
                                 button
                                 item-menu-social-container
-                            "
-                            id="item-menu-ig"
-                        >
-                            <a
-                                class="item-menu-social instagram-logo"
-                                href="https://www.instagram.com/ricardogenaro99/"
-                                target="_blank"
-                            >
+                            " id="item-menu-ig">
+                            <a class="item-menu-social instagram-logo" href="https://www.instagram.com/ricardogenaro99/"
+                                target="_blank">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </li>
@@ -97,28 +83,18 @@
                         <h5 class="title-grid-item">¿Cuál es tu género?</h5>
                         <div class="item-select-genero">
                             <div class="item-genero">
-                                <img
-                                    src="https://assets.yazio.com/frontend/images/icons.svg#icon-male"
-                                    alt=""
-                                    class="img-genero"
-                                />
-                                <div
-                                    class="button-genero button-man button" id="button-man"
-                                >
+                                <img src="https://assets.yazio.com/frontend/images/icons.svg#icon-male" alt=""
+                                    class="img-genero" />
+                                <div class="button-genero button-man button" id="button-man">
                                     Hombre
                                 </div>
                             </div>
                             <div class="item-genero">
-                                <img
-                                    src="https://assets.yazio.com/frontend/images/icons.svg#icon-female"
-                                    alt=""
-                                    class="img-genero"
-                                />
-                                <div
-                                    class="
+                                <img src="https://assets.yazio.com/frontend/images/icons.svg#icon-female" alt=""
+                                    class="img-genero" />
+                                <div class="
                                         button-genero button-woman button
-                                    " id="button-woman"
-                                >
+                                    " id="button-woman">
                                     Mujer
                                 </div>
                             </div>
@@ -129,15 +105,8 @@
                         <h5 class="title-grid-item">
                             ¿Cuántos años tienes?
                         </h5>
-                        <input
-                            type="text"
-                            id="edad"
-                            class="input-numeric"
-                            onkeypress="return solonumeros(event)"
-                            autocomplete="off"
-                            onpaste="return false"
-                            placeholder="22"
-                        />
+                        <input type="text" id="edad" class="input-numeric" onkeypress="return solonumeros(event)"
+                            autocomplete="off" onpaste="return false" placeholder="22" />
                         <span class="unidad-medida">años</span>
                         <div class="icon-container">
                             <i class="fas fa-birthday-cake icon icake"></i>
@@ -146,47 +115,26 @@
                     <div class="grid-item item3">
                         <div class="num-grid-item">3</div>
                         <h5 class="title-grid-item">¿Cuánto mides?</h5>
-                        <input
-                            type="text"
-                            id="altura"
-                            class="input-numeric"
-                            onkeypress="return solonumeros(event)"
-                            autocomplete="off"
-                            onpaste="return false"
-                            placeholder="170"
-                        />
+                        <input type="text" id="altura" class="input-numeric" onkeypress="return solonumeros(event)"
+                            autocomplete="off" onpaste="return false" placeholder="170" />
                         <span class="unidad-medida">cm</span>
                         <div class="icon-container">
-                            <i
-                                class="fas fa-ruler-vertical icon iruler"
-                            ></i>
+                            <i class="fas fa-ruler-vertical icon iruler"></i>
                         </div>
                     </div>
                     <div class="grid-item item4">
                         <div class="num-grid-item">4</div>
                         <h5 class="title-grid-item">¿Cuánto pesas?</h5>
 
-                        <input
-                            type="text"
-                            id="peso"
-                            class="input-numeric"
-                            onkeypress="return solonumeros(event)"
-                            autocomplete="off"
-                            onpaste="return false"
-                            placeholder="70"
-                        />
+                        <input type="text" id="peso" class="input-numeric" onkeypress="return solonumeros(event)"
+                            autocomplete="off" onpaste="return false" placeholder="70" />
                         <span class="unidad-medida">kg</span>
                         <div class="icon-container">
                             <i class="fas fa-weight icon iweight"></i>
                         </div>
                     </div>
                 </div>
-                <a
-                    href="#resultado-container"
-                    class="btn-calcular button"
-                    id="btn-calcular"
-                    >Calcular tu IMC</a
-                >
+                <a href="#resultado-container" class="btn-calcular button" id="btn-calcular">Calcular tu IMC</a>
             </form>
 
             <div class="resultado-color-container" id="resultado-container">
@@ -253,17 +201,15 @@
                 <div class="show-resultado-imc-container"></div>
             </div>
 
-            <div
-                class="resultado-description-container"
-                id="resultado-description-container"
-            >
+            <div class="resultado-description-container" id="resultado-description-container">
                 <div class="resultado-description" id="resultado-description">
                 </div>
-                
+
             </div>
         </main>
     </div>
 
     <script src="./js/index.js"></script>
 </body>
+
 </html>
