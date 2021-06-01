@@ -173,11 +173,11 @@ let prefijosCovid = {
     2: "algo",
     3: "muy",
     4: "demasiado",
-    5: "potencialemnte"
+    5: "potencialmente"
 }
 
 const mensajeCovid = (n) => {
-    let mensaje = `Debido a que te encuentras ${intervalImc[n][2]} estas ${prefijosCovid[n]} propenso a tener COIVD segun tu IMC.`;
+    let mensaje = `Debido a que te encuentras ${intervalImc[n][2]} estas ${prefijosCovid[n]} propenso a tener COVID segun tu IMC.`;
 
     return mensaje
 }
