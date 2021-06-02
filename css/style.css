@@ -7,8 +7,13 @@ html {
 }
 
 .web-container {
-    margin: auto;
+    margin: 10px auto 30px auto;
     max-width: 1200px;
+    width: 100%;
+    box-shadow: 1px 0px 22px 1px rgba(0,0,0,0.36);
+    -webkit-box-shadow: 1px 0px 22px 1px rgba(0,0,0,0.36);
+    -moz-box-shadow: 1px 0px 22px 1px rgba(0,0,0,0.36);
+    background-color: #fff;
 }
 
 .button {
@@ -32,7 +37,20 @@ a {
     display: none;
 }
 
+body::-webkit-scrollbar-thumb{
+    background-color: rgb(226, 73, 73);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+}
+
+body::-webkit-scrollbar{
+    background-color: rgb(240, 144, 66);
+    width: 13px;
+}
+
 /*------------------CABECERA Y MENU----------------------*/
+
+
 .header {
     border-bottom: 1px solid #ccc;
     margin-bottom: 30px;
@@ -76,11 +94,11 @@ a {
 
 /*-------------MENU DESPEGABLE LATERAL-----------*/
 .nav-menu-container {
-    transform: translateX(390px);
+    transform: translateX(287px);
 }
 
 .nav-menu-container-off {
-    transform: translateX(390px);
+    transform: translateX(287px);
     transition: all 0.4s ease;
 }
 
@@ -93,71 +111,22 @@ a {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 0 45px 0 10px;
-    min-width: 345px;
+    margin: 0 40px 0 25px;
+    min-width: 5px;
     max-width: 440px;
-    width: 345px;
+    width: auto;
 }
 
 .item-menu {
     font-size: 18px;
     margin: 0 8px;
+    text-align: center;
 }
 
 .item-menu-border:hover {
     border-bottom: 2px solid #000;
 }
 
-.item-menu-social-container {
-    margin: 0;
-}
-
-.item-menu-social-container:hover {
-    animation: rotatIcono 0.45s ease;
-}
-
-@keyframes rotatIcono {
-    0% {
-        transform: rotate3d(0, 0, 0, 0);
-    }
-    100% {
-        transform: rotate3d(0, 1, 0, 360deg);
-    }
-}
-
-.item-menu-social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 31px;
-    width: 31px;
-    line-height: 31px;
-    border-radius: 100%;
-    text-align: center;
-    color: #fff;
-}
-
-.facebook-logo {
-    background: #3b5998;
-    font-size: 17px;
-    margin-left: 5px;
-    margin-right: 2px;
-}
-
-.instagram-logo {
-    font-size: 22px;
-    background: #d6249f;
-    margin-right: 5px;
-    margin-left: 2px;
-    background: radial-gradient(
-        circle at 30% 107%,
-        #fdf497 0%,
-        #fdf497 5%,
-        #fd5949 45%,
-        #d6249f 60%,
-        #285aeb 90%
-    );
-}
 
 /*------------------MAIN----------------------*/
 .info-title-web {
@@ -483,10 +452,11 @@ a {
     font-weight: 700;
 }
 
+
 /*-------------SOBRE EL IMC----------*/
 
 .web-imc-item {
-    padding: 10px 40px;
+    padding: 10px 8%;
     margin: 15px 0;
 }
 
@@ -513,6 +483,93 @@ a {
     margin-bottom: 25px;
 }
 
+/*--------------FOOTER---------------*/
+.footer-flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 58px;
+    margin-top: 30px;
+}
+
+.footer-flex-item{
+    display: flex;
+}
+
+.footer-text{
+    padding: 0 4px;
+    margin-top: 15px;
+}
+
+.footer-text:nth-child(1){
+    color: #000;
+    font-weight: 500;
+}
+
+.footer-text:nth-child(2){
+    color: rgb(155, 30, 117);
+    font-weight: 700;
+}
+
+
+.item-footer-social:hover {
+    animation: rotatIcono 0.45s ease;
+}
+
+.item-footer-social{
+    margin: 0 10px;
+}
+
+@keyframes rotatIcono {
+    0% {
+        transform: rotate3d(0, 0, 0, 0);
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}
+
+.item-footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    line-height: 42px;
+    border-radius: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.facebook-logo {
+    background: #3b5998;
+    font-size: 25px;
+}
+
+.instagram-logo {
+    font-size: 28px;
+    background: #d6249f;
+    background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+}
+
+.github-logo{
+    font-size: 44px;
+    color: rgb(21, 2, 27);
+}
+
+.linkedin-logo{
+    font-size: 26px;
+    background: #0e76a8;
+}
+
 /*MIN WIDTH DE LA PANTALLA PARA 2 COLUMNAS ES 858PX*/
 /*----------------RESPONSIVE DESIGN----------------*/
 
@@ -535,11 +592,14 @@ a {
 @media (max-width: 802px) {
     .nav-flex{
         width: 100%;
-
     }
 
     .nav-flex-item{
         width: 100%;
+    }
+
+    .btn-menu{
+        visibility:hidden;
     }
 
     .nav-flex-item:nth-child(2){
@@ -557,11 +617,7 @@ a {
         min-width: auto;
         max-width: auto;
     }
-
     
-    .btn-menu{
-        visibility:hidden;
-    }
 }
 
 
@@ -592,10 +648,6 @@ a {
     .menu{
         margin: 0;
     }
-
-    .item-menu-social-container{
-        display: none;
-    }
 }
 
 @media (max-width: 473px) {
@@ -607,7 +659,7 @@ a {
         margin: auto;
         overflow: hidden;
         height: 90px;
-        border: 1px solid rgb(109, 109, 112);
+        
     }
 
     .nav-flex-item:nth-child(1) {
@@ -619,8 +671,6 @@ a {
         justify-content: flex-end;
         padding: 0;
     }
-
-    
 
     .nav-menu-container {
         transform: translateX(0);
@@ -637,6 +687,6 @@ a {
     .grid-item {
         width: 80%;
         min-width: 320px;
-        height: 260px;
+        height: 260px;      
     }
 }

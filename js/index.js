@@ -22,8 +22,8 @@ let db = [];
 
 let intervalImc = [[0.0,18.4,"con bajo peso"],[18.5,24.9,"saludable"],[25,29.9,"con sobrepeso"],[30,34.9,"con obesidad I"], [35,39.9,"con obesidad II"], [40,Infinity,"con obesidad III"]]
 
-const llenarDb = (genero,edad,altura,peso) =>{
-    db.push([genero,edad,altura,peso]);
+const llenarDb = (genero,edad,altura,peso,imc) =>{
+    db.push([genero,edad,altura,peso,imc]);
     console.log(db);
 }
 
@@ -82,7 +82,7 @@ botonImc.addEventListener('click', (e) => {
             let pos = posDiv(imc);
             if (pos != -1) {
                 limpiarDivs();
-                llenarDb(generoSeleccionado,edad.value,altura.value,peso.value)
+                llenarDb(generoSeleccionado,edad.value,altura.value,peso.value,imc)
                 showResultados[pos].innerHTML = `
                 <p class="show-resultado-imc-item-text">Tu IMC</p>
                 <p class="show-resultado-imc-item-text"><b>${imc}</b></p>
