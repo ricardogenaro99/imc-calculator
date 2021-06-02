@@ -121,7 +121,7 @@ botonImc.addEventListener('click', (e) => {
         }
     } else {
         limpiarDivs();
-        mensaje = `<p class="resultado-description-text"> Ingrese todos la informacion requerida</p>`
+        mensaje = `<p class="resultado-description-text"> Rellene todo los campos requeridos</p>`
         asignarMensaje("error", "success", mensaje)
     };
 
