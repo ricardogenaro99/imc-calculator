@@ -483,6 +483,16 @@ body::-webkit-scrollbar{
     margin-bottom: 25px;
 }
 
+.imagen-container{
+    max-width: 560px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 /*--------------FOOTER---------------*/
 .footer-flex-container{
     display: flex;
