@@ -6,6 +6,12 @@ html {
     scroll-behavior: smooth;
 }
 
+body{
+    background: #C9FFBF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFAFBD, #C9FFBF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .web-container {
     margin: 10px auto 30px auto;
     max-width: 1200px;
@@ -13,12 +19,16 @@ html {
     box-shadow: 1px 0px 22px 1px rgba(0,0,0,0.36);
     -webkit-box-shadow: 1px 0px 22px 1px rgba(0,0,0,0.36);
     -moz-box-shadow: 1px 0px 22px 1px rgba(0,0,0,0.36);
-    background-color: #fff;
+    
+    background-color: rgba(255, 255, 255, 0.932);
+
 }
 
 .web-opacity{
     animation: inicioOpacity 3s ease;
+    
 }
+
 
 @keyframes inicioOpacity {
     0% {
@@ -269,6 +279,7 @@ body::-webkit-scrollbar{
     font-size: 27px;
     color: #222;
     outline: none;
+    background: none;
 }
 
 .input-numeric::placeholder {
