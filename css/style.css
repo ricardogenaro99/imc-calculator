@@ -16,6 +16,21 @@ html {
     background-color: #fff;
 }
 
+.web-opacity{
+    animation: inicioOpacity 3s ease;
+}
+
+@keyframes inicioOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    
+}
+
+
 .button {
     cursor: pointer;
 }
@@ -444,6 +459,36 @@ body::-webkit-scrollbar{
     background: #ff432a73;
     border: 1.8px solid #ff432a2a;
 }
+
+.resultado-description-loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background: #8de4ff54;
+    border: 1.8px solid #52d7ff2a;
+    font-size: 45px
+}
+
+#loading{
+    animation: girar 1.5s linear infinite;
+    /* standard gradient background */
+    background: linear-gradient(rgb(25, 72, 201), rgb(108, 209, 104));
+    /* clip informático */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes girar {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+
 .resultado-description-text {
     font-size: 17px;
     margin: 7px 0;
